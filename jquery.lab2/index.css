@@ -1,0 +1,26 @@
+.label-line-through{
+    text-decoration: line-through;
+}
+.container{
+    margin: auto;
+    background-color:#95d2d4;
+    height: 300px;
+    width: 500px;
+}
+.input-text{
+    margin-left: 130px;
+}
+.container ul{
+    list-style-type: none;
+    margin-left: 100px;
+}
+.btn-add{
+    background-color:rgb(220, 20, 80);
+}
+#title{
+    text-align: center;
+    color:rgb(220, 20, 80);
+}
+.btn-delete{
+    margin-left: 50px;
+}
