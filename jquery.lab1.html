@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery lab1</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    <style>
+        .container{
+            background-color: rgb(121, 193, 196);
+            width: 250px;
+            height: 330px;
+
+        }
+        #h1{
+            text-align: center;
+        }
+        .calculator, .result{
+            width: 200px;
+            margin-left: 20px;
+        }
+        .button , .button_equal{
+            width: 50px;
+            height: 30px;
+            background-color: rgb(236, 218, 169);
+            font-weight: bold;
+        }
+        .special-btn{
+            width: 103px;
+            height: 30px;
+            background-color: rgb(236, 218, 169);
+            font-weight: bold;
+        }
+        .keyboard{
+            margin-left: 15px;
+            margin-top: 10px;
+            
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h1 id="h1">Calculator</h1>
+        <div class="display">
+        <input class="calculator" placeholder="input a number"/><br>
+        <input class="result" placeholder="result"/>
+        </div><br>
+        <div class="keyboard">
+            <table>
+                <tr>
+                    <td><button class="button" type="button" name="" value="Del">Del</button></td>
+                    <td><button class="button" type="button" name="" value="MC">MC</button></td>
+                    <td><button class="button" type="button" name="" value="/">/</button></td>
+                    <td><button class="button" type="button" name="" value="*">*</button></td>              
+                </tr>
+                <tr>
+                    <td><button class="button" type="button" name="" value="7">7</button></td>
+                    <td><button class="button" type="button" name="" value="8">8</button></td>
+                    <td><button class="button" type="button" name="" value="9">9</button></td>
+                    <td><button class="button" type="button" name="" value="-">-</button></td>              
+                </tr>
+                <tr>
+                    <td><button class="button" type="button" name="" value="4">4</button></td>
+                    <td><button class="button" type="button" name="" value="5">5</button></td>
+                    <td><button class="button" type="button" name="" value="6">6</button></td>
+                    <td><button class="button" type="button" name="" value="+">+</button></td>              
+                </tr>
+                <tr>
+                    <td><button class="button" type="button" name="" value="1">1</button></td>
+                    <td><button class="button" type="button" name="" value="2">2</button></td>
+                    <td><button class="button" type="button" name="" value="3">3</button></td>
+                    <td><button class="button_equal" type="button" name="" value="=">=</button></td>              
+                </tr>
+                <tr>
+                    <td colspan="2"><button class="special-btn" type="button" name="" value="0">0</button></td>
+                    <td colspan="2"><button class="special-btn" type="button" name="" value=".">.</button></td>              
+                </tr>
+                
+            </table>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            var input ='';
+            $('.button').click(function(){
+                if($(this).val() == 'MC'){
+                    $('.calculator').val('');
+                    $('.result').val('');
+                    input = '';
+                    //return false; (Hoặc có thể dùng else, return false để code bên dưới dừng chạy)
+                }
+                else{
+                    if($(this).val() == 'Del'){
+                    input = input.substr(0, input.length - 1);
+                    } else {
+                    input += $(this).val();
+                    }
+                }   
+
+                $('.calculator').val(input);
+            });
+
+            $('.button_equal').click(function(){
+                $('.result').val(eval(input));
+            });
+        });
+    </script>
+</body>
+</html>
